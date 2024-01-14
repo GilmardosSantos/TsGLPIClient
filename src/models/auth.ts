@@ -1,0 +1,1 @@
+export type AuthResponse = { session_token: string};
