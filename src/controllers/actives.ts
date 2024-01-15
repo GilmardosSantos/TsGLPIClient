@@ -1,25 +1,11 @@
 import { GLPIGetActiveErrorHandle } from "../handlers/active.handler";
-import { Cable } from "../models/actives/computer/cable.model";
-import { CartridgeItem } from "../models/actives/computer/cartridgeitem.model";
-import { Computer } from "../models/actives/computer/computer.model";
-import { ConsumableItem } from "../models/actives/computer/consumableitem.model";
-import { Device } from "../models/actives/computer/device.model";
-import { Enclosure } from "../models/actives/computer/enclosure.model";
-import { Item_Device } from "../models/actives/computer/item_device.model";
-import { Monitor } from "../models/actives/computer/monitor.model";
-import { NetworkEquipament } from "../models/actives/computer/networkequipament.model";
-import { PassivedCEquipament } from "../models/actives/computer/passivedcequipment.model";
-import { PDU } from "../models/actives/computer/pdu.model";
-import { Phone } from "../models/actives/computer/phone.model";
-import { Printer } from "../models/actives/computer/printer.model";
-import { Rack } from "../models/actives/computer/rack.model";
-import { Software } from "../models/actives/computer/software.model";
-import { Unmanaged } from "../models/actives/computer/unmanaged.model";
+import { Cable, CartridgeItem, Computer, ConsumableItem, Enclosure, Item_Device, Monitor, NetworkEquipament, PDU, PassivedCEquipament, Peripheral, Phone, Printer, Rack, Software, Unmanaged } from '../models/actives/model';
+import { REQUESTS } from "../models/requests";
 import { requestItem, requestItens } from "../utils/simpleRequest";
 
 export class GlpiActives {
 
-    constructor(private auth: { session_token: string, glpi_url: string, app_token: string }){
+    constructor(private auth: REQUESTS){
       this.auth = {... auth};
     }
 
@@ -88,22 +74,7 @@ export class GlpiActives {
         }
     }
 
-    public async getDevice(id: string, params?: any): Promise<Device>{
-        try {
-            return (await requestItem.bind(this.auth)('Devices', id, params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('Devices', id);
-        }
-    }
-
-    public async getDevices(params?: any): Promise<Device[]>{
-        try {
-            return (await requestItens.bind(this.auth)('Devices', params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('Devices');
-        }
-    }
-
+    
     public async getEnclosure(id: string, params?: any): Promise<Enclosure>{
         try {
             return (await requestItem.bind(this.auth)('Enclosure', id, params)).data;
@@ -111,7 +82,7 @@ export class GlpiActives {
             throw GLPIGetActiveErrorHandle('Enclosure', id);
         }
     }
-
+    
     public async getEnclosures(params?: any): Promise<Enclosure[]>{
         try {
             return (await requestItens.bind(this.auth)('Enclosure', params)).data;
@@ -119,23 +90,23 @@ export class GlpiActives {
             throw GLPIGetActiveErrorHandle('Enclosure');
         }
     }
-
-    public async getItemDevice(id: string, params?: any): Promise<Item_Device>{
-        try {
-            return (await requestItem.bind(this.auth)('Item_Device', id, params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('Item_Device', id);
-        }
-    }
-
-    public async getItemDevices(params?: any): Promise<Item_Device[]>{
-        try {
-            return (await requestItens.bind(this.auth)('Item_Device', params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('Item_Device');
-        }
-    }
-
+    
+    // public async getItemDevice(id: string, params?: any): Promise<Item_Device>{
+    //     try {
+    //         return (await requestItem.bind(this.auth)('item_devicesimcard.' as any, id, params)).data;
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('Item_DeviceSIMCARD', id);
+    //     }
+    // }
+    
+    // public async getItemDevices(params?: any): Promise<Item_Device[]>{
+    //     try {
+    //         return (await requestItens.bind(this.auth)('item_device' as any, params)).data;
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('Item_DeviceSIMCARD');
+    //     }
+    // }
+    
     public async getMonitor(id: string, params?: any): Promise<Monitor>{
         try {
             return (await requestItem.bind(this.auth)('Monitor', id, params)).data;
@@ -143,7 +114,7 @@ export class GlpiActives {
             throw GLPIGetActiveErrorHandle('Monitor', id);
         }
     }
-
+    
     public async getMonitors(params?: any): Promise<Monitor>{
         try {
             return (await requestItens.bind(this.auth)('Monitor', params)).data;
@@ -151,39 +122,39 @@ export class GlpiActives {
             throw GLPIGetActiveErrorHandle('Monitor');
         }
     }
-
-    public async getNetworkEquipament(id: string, params?: any): Promise<NetworkEquipament[]>{
-        try {
-            return (await requestItem.bind(this.auth)('NetworkEquipament',id, params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('NetworkEquipament', id);
-        }
-    }
-
-    public async getNetworkEquipaments(params?: any): Promise<NetworkEquipament[]>{
-        try {
-            return (await requestItens.bind(this.auth)('NetworkEquipament', params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('NetworkEquipament');
-        }
-    }
-
-    public async getPassivedCEquipament(id: string, params?: any): Promise<PassivedCEquipament[]>{
-        try {
-            return (await requestItem.bind(this.auth)('PassivedCEquipament', id, params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('PassivedCEquipament', id);
-        }
-    }
-
-    public async getPassivedCEquipaments(params?: any): Promise<PassivedCEquipament[]>{
-        try {
-            return (await requestItens.bind(this.auth)('PassivedCEquipament', params)).data;
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('PassivedCEquipament');
-        }
-    }
-
+    
+    // public async getNetworkEquipament(id: string, params?: any): Promise<NetworkEquipament[]>{
+    //     try {
+    //         return (await requestItem.bind(this.auth)('NetworkEquipament',id, params)).data;
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('NetworkEquipament', id);
+    //     }
+    // }
+    
+    // public async getNetworkEquipaments(params?: any): Promise<NetworkEquipament[]>{
+    //     try {
+    //         return (await requestItens.bind(this.auth)('networkequipament' as any, params)).data;
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('NetworkEquipament');
+    //     }
+    // }
+    
+    // public async getPassivedCEquipament(id: string, params?: any): Promise<PassivedCEquipament[]>{
+    //     try {
+    //         return (await requestItem.bind(this.auth)('PassivedCEquipament', id, params)).data;
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('PassivedCEquipament', id);
+    //     }
+    // }
+    
+    // public async getPassivedCEquipaments(params?: any): Promise<PassivedCEquipament[]>{
+    //     try {
+    //         return (await requestItens.bind(this.auth)('PassivedCEquipament', params)).data;
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('PassivedCEquipament');
+    //     }
+    // }
+    
     public async getPDU(id: string, params?: any): Promise<PDU[]>{
         try {
             return (await requestItem.bind(this.auth)('Pdu', id, params)).data;
@@ -191,12 +162,28 @@ export class GlpiActives {
             throw GLPIGetActiveErrorHandle('Pdu', id);
         }
     }
-
+    
     public async getPDUs(params?: any): Promise<PDU[]>{
         try {
             return (await requestItens.bind(this.auth)('Pdu', params)).data;
         } catch (err) {
             throw GLPIGetActiveErrorHandle('Pdu');
+        }
+    }
+    
+    public async getPeriphal(id: string, params?: any): Promise<Peripheral>{
+        try {
+            return (await requestItem.bind(this.auth)('Peripheral', id, params)).data;
+        } catch (err) {
+            throw GLPIGetActiveErrorHandle('Peripheral', id);
+        }
+    }
+
+    public async getPeriphals(params?: any): Promise<Peripheral[]>{
+        try {
+            return (await requestItens.bind(this.auth)('Peripheral' as any, params)).data;
+        } catch (err) {
+            throw GLPIGetActiveErrorHandle('Peripheral');
         }
     }
 
@@ -248,21 +235,21 @@ export class GlpiActives {
         }
     }
 
-    public async getSoftware(id: string, params?: any): Promise<Software[]>{
-        try {
-            return (await requestItem.bind(this.auth)('Software', id, params)).data
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('Software', id);
-        }
-    }
+    // public async getSoftware(id: string, params?: any): Promise<Software[]>{
+    //     try {
+    //         return (await requestItem.bind(this.auth)('Software', id, params)).data
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('Software', id);
+    //     }
+    // }
 
-    public async getSoftwares(params?: any): Promise<Software[]>{
-        try {
-            return (await requestItens.bind(this.auth)('Software', params)).data
-        } catch (err) {
-            throw GLPIGetActiveErrorHandle('Software');
-        }
-    }
+    // public async getSoftwares(params?: any): Promise<Software[]>{
+    //     try {
+    //         return (await requestItens.bind(this.auth)('Software', params)).data
+    //     } catch (err) {
+    //         throw GLPIGetActiveErrorHandle('Software');
+    //     }
+    // }
 
     public async getUnmanaged(id: string, params?: any): Promise<Unmanaged[]>{
         try {

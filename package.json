@@ -20,10 +20,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/GilmardosSantos/TsGLPIClient"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/GilmardosSantos/TsGLPIClient/issues"
   },
   "jest": {
     "preset": "ts-jest",

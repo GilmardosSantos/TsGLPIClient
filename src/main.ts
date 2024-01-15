@@ -8,6 +8,12 @@ export class GlpiClient{
     constructor(private glpiClient: GlpiClientInterface){
         console.log(glpiClient)
         this.glpiClient = { ...glpiClient };
+        this.authenticateWithUserToken()
+        .then(client => {
+            client.Administration().getProfiles().then(response => {
+                console.log(response)
+            })
+        })
     }
 
     public async authenticateWithUserToken(){
