@@ -34,6 +34,23 @@ export {
     Unmanaged
 }
 
+export type ActiveRequestMap = {
+    "Cable": Cable;
+    "CartridgeItem": CartridgeItem;
+    "Computer": Computer 
+    "ConsumableItem": ConsumableItem
+    "Enclosure": Enclosure 
+    "Item_DeviceSIMCARD": Item_Device
+    "Monitor": Monitor
+    "PassivedCEquipament": PassivedCEquipament 
+    "Peripheral":  Peripheral
+    "Pdu": PDU
+    "Phone": Phone
+    "Printer": Printer
+    "Rack": Rack
+    "Software": Software
+    "Unmanaged": Unmanaged
+}
 
 
 

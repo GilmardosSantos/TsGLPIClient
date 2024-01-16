@@ -1,6 +1,4 @@
 import { Links, truefalse } from "../glpi/glpi";
-import { Entity } from "./entity.model";
-
 export interface Group{
     id: number;
     entities_id: number;

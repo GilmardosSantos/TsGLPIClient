@@ -1,17 +1,20 @@
 import { Auth } from "./controllers/auth";
 import { Requests } from "./controllers/requests";
 import { environment } from './config/environment'
-import { GlpiClientInterface } from "./models/main";
+import { GLPIClientInterface } from "./models/main";
+import { MimeTypes } from "./enum/mimetype";
 
 export class GlpiClient{
 
-    constructor(private glpiClient: GlpiClientInterface){
+    constructor(private glpiClient: GLPIClientInterface){
         console.log(glpiClient)
         this.glpiClient = { ...glpiClient };
         this.authenticateWithUserToken()
         .then(client => {
-            client.Administration().getProfiles().then(response => {
-                console.log(response)
+            client.Dropdown.Types.getPrintersTypes().then(response => {
+                console.log("Response", response);
+            }).catch((err) =>{
+                console.error(err)
             })
         })
     }

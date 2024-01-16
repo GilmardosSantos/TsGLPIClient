@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { RequestsType } from '../models/requests';
-import { GlpiActives } from './actives';
-import { GlpiAdministration } from './administration';
-
+import { GLPIActives } from './actives/glpi-actives';
+import { GLPIAdministration } from './administration/glpi-administration';
+import { GLPIAssistance } from './assistance/glpi-assistance';
+import { GLPIDropdown } from './dropdown/glpi-dropdown';
+import { GLPIManagement } from './management/glpi-management';
+import { GLPITools } from './tools/glpi-tools';
 export class Requests {
     constructor(
         private auth: {
@@ -14,24 +16,27 @@ export class Requests {
             this.auth = { ...auth };
     }
 
-    public async simpleRequest<RequestType>(glpiRequest: RequestsType, id = '', params = {'range': '0-999'}){
-        return axios.create(
-            {
-                baseURL: this.auth.glpi_url,
-                headers: {
-                    "App-Token": this.auth.app_token,
-                    "Session-Token": this.auth.session_token
-                },
-                params
-            }
-        ).get(`${glpiRequest}/${id}`)
+    public get Actives() {
+        return new GLPIActives(this.auth);
     }
 
-    public Actives() {
-        return new GlpiActives(this.auth);
+    public get Administration(){
+        return new GLPIAdministration(this.auth);
     }
 
-    public Administration(){
-        return new GlpiAdministration(this.auth);
+    public get Assistance() {
+        return new GLPIAssistance(this.auth);
+    }
+
+    public get Dropdown() {
+        return new GLPIDropdown(this.auth);
+    }
+
+    public get Management(){
+        return new GLPIManagement(this.auth);
+    }
+
+    public Tools(){
+        return new GLPITools(this.auth);
     }
 }
