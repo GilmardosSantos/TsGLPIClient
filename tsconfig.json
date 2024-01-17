@@ -4,19 +4,24 @@
       "module": "commonjs",
       "sourceMap": true,
       "outDir": "./lib",
-      "rootDir": "./src",
+      "rootDir": "./",
+      "moduleResolution": "node",
+      "baseUrl": ".",
+      "resolveJsonModule": true,
+      "paths": {
+        "@controllers/*": ["src/controllers/*"],
+        "@config/*": ["src/config/*"],
+        "@enum/*": ["src/enum/*"],
+        "@handlers/*": ["src/handlers/*"],
+        "@models/*": ["src/models/*"],
+      },
       "strict": true,
       "esModuleInterop": true,
       "declaration": true,
-      "paths": {
-        "@controllers/*": ["./src/controllers/*"],
-        "@config/*": ["./src/config/*"],
-        "@enum/*": ["./src/enum/*"],
-        "@handlers/*": ["./src/handlers/*"],
-        "@models/*": ["./src/models/*"],
-      }
     },
-    "include": ["src/**/*.ts"],
+    "include": [
+      "src/**/*.ts"
+    ],
     "exclude": [
       "node_modules",
       "**/*.spec.ts"

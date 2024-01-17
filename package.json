@@ -9,7 +9,7 @@
     "clean": "rimraf lib",
     "tsc": "tsc",
     "build": "npm run clean && npm run tsc",
-    "test": "jest",
+    "test": "jest --no-cache",
     "prepublish": "npm run test && npm run build"
   },
   "keywords": [
@@ -24,14 +24,6 @@
   },
   "bugs": {
     "url": "https://github.com/GilmardosSantos/TsGLPIClient/issues"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "lib"
-    ]
   },
   "files": [
     "lib/**/*"

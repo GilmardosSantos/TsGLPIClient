@@ -1,7 +1,7 @@
-import { Auth } from "@controllers/auth";
 import { environment } from '@config/environment'
-import { GLPIClientInterface } from "@models/main";
+import { GLPIAuth } from "@controllers/glpi-auth";
 import { GLPIRequests } from "@controllers/glpi-requests";
+import { GLPIClientInterface } from "@models/main";
 
 export class GLPIClient{
 
@@ -18,9 +18,9 @@ export class GLPIClient{
         })
     }
 
-    public async authenticateWithUserToken(){
+    public async authenticateWithUserToken(): Promise<GLPIRequests>{
         const { glpi_url, app_token } = this.glpiClient;
-        return new Auth(this.glpiClient).authenticateWithToken().then(glpi => {
+        return new GLPIAuth(this.glpiClient).authenticateWithToken().then(glpi => {
             const { session_token } = glpi;
             return new GLPIRequests({session_token, glpi_url, app_token});
         }).catch(err => {
@@ -28,7 +28,3 @@ export class GLPIClient{
         })
     }
 }
-
-
-
-new GLPIClient({...environment.dev})

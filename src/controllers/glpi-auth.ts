@@ -2,7 +2,7 @@ import axios from "axios";
 import { AuthResponse } from "@models/auth";
 import { GLPIClientInterface } from "@models/main";
 
-export class Auth {
+export class GLPIAuth {
     constructor(private auth: GLPIClientInterface){
         this.auth = { ...auth };
     }
