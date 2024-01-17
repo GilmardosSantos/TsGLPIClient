@@ -7,7 +7,14 @@
       "rootDir": "./src",
       "strict": true,
       "esModuleInterop": true,
-      "declaration": true
+      "declaration": true,
+      "paths": {
+        "@controllers/*": ["./src/controllers/*"],
+        "@config/*": ["./src/config/*"],
+        "@enum/*": ["./src/enum/*"],
+        "@handlers/*": ["./src/handlers/*"],
+        "@models/*": ["./src/models/*"],
+      }
     },
     "include": ["src/**/*.ts"],
     "exclude": [

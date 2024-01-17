@@ -1,7 +1,7 @@
-import { DropdownAssistanceMap } from '../../../models/dropdown/assistance/dropdown.assistance.model'
-import { REQUESTS } from "../../../models/requests";
-import { RequestsHandler } from '../../../handlers/request-handler';
-import { GLPIGetErrorHandler } from '../../../handlers/errors/glpi-get-error-handler';
+import { DropdownAssistanceMap } from '@models/controllers/dropdown/assistance/dropdown.assistance.model'
+import { REQUESTS } from "@models/requests";
+import { RequestsHandler } from '@handlers/request-handler';
+import { GLPIGetErrorHandler } from '@handlers/errors/glpi-get-error.handler';
 
 export class GLPIDropdownAssistance extends RequestsHandler<DropdownAssistanceMap>{
 

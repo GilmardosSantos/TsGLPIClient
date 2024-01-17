@@ -1,7 +1,7 @@
-import  { AdministrationRequestsMap }  from '../../models/administration/administration.model'
-import { REQUESTS } from "../../models/requests";
-import { RequestsHandler } from "../../handlers/request-handler";
-import { GLPIGetErrorHandler } from "../../handlers/errors/glpi-get-error-handler";
+import  { AdministrationRequestsMap }  from '@models/controllers/administration/administration.model'
+import { REQUESTS } from "@models/requests";
+import { RequestsHandler } from "@handlers/request-handler";
+import { GLPIGetErrorHandler } from "@handlers/errors/glpi-get-error.handler";
 
 export class GLPIAdministration extends RequestsHandler<AdministrationRequestsMap>{
     

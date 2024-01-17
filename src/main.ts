@@ -1,10 +1,9 @@
-import { Auth } from "./controllers/auth";
-import { Requests } from "./controllers/requests";
-import { environment } from './config/environment'
-import { GLPIClientInterface } from "./models/main";
-import { MimeTypes } from "./enum/mimetype";
+import { Auth } from "@controllers/auth";
+import { environment } from '@config/environment'
+import { GLPIClientInterface } from "@models/main";
+import { GLPIRequests } from "@controllers/glpi-requests";
 
-export class GlpiClient{
+export class GLPIClient{
 
     constructor(private glpiClient: GLPIClientInterface){
         console.log(glpiClient)
@@ -23,14 +22,13 @@ export class GlpiClient{
         const { glpi_url, app_token } = this.glpiClient;
         return new Auth(this.glpiClient).authenticateWithToken().then(glpi => {
             const { session_token } = glpi;
-            return new Requests({session_token, glpi_url, app_token});
+            return new GLPIRequests({session_token, glpi_url, app_token});
         }).catch(err => {
             throw new Error("Was not possible authenticate at GLPI");
         })
     }
-
 }
 
 
 
-new GlpiClient({...environment.dev})
+new GLPIClient({...environment.dev})

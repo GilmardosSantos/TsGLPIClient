@@ -1,7 +1,7 @@
-import { GLPIGetErrorHandler } from "../../../handlers/errors/glpi-get-error-handler";
-import { RequestsHandler } from "../../../handlers/request-handler";
-import { DropdownTypesMap } from "../../../models/dropdown/types/dropdown.types.model";
-import { REQUESTS } from "../../../models/requests";
+import { GLPIGetErrorHandler } from "@handlers/errors/glpi-get-error.handler";
+import { RequestsHandler } from "@handlers/request-handler";
+import { DropdownTypesMap } from "@models/controllers/dropdown/types/dropdown.types.model";
+import { REQUESTS } from "@models/requests";
 
 export class GLPIDropdownTypes extends RequestsHandler<DropdownTypesMap>{
     constructor( auth: REQUESTS) {

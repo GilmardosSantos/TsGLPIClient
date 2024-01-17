@@ -1,7 +1,7 @@
-import { GLPIGetErrorHandler } from "../../handlers/errors/glpi-get-error-handler";
-import { ActiveRequestMap } from '../../models/actives/actives.model';
-import { REQUESTS } from "../../models/requests";
-import { RequestsHandler } from "../../handlers/request-handler";
+import { GLPIGetErrorHandler } from "@handlers/errors/glpi-get-error.handler";
+import { ActiveRequestMap } from '@models/controllers/actives/actives.model';
+import { REQUESTS } from "@models/requests";
+import { RequestsHandler } from "@handlers/request-handler";
 
 export class GLPIActives extends RequestsHandler<ActiveRequestMap>{
 

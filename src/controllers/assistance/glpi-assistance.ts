@@ -1,7 +1,7 @@
-import { AssistanceRequestsMap } from '../../models/assistance/assistance.model'
-import { REQUESTS } from "../../models/requests";
-import { RequestsHandler } from "../../handlers/request-handler";
-import { GLPIGetErrorHandler } from '../../handlers/errors/glpi-get-error-handler';
+import { AssistanceRequestsMap } from '@models/controllers/assistance/assistance.model'
+import { REQUESTS } from "@models/requests";
+import { RequestsHandler } from "@handlers/request-handler";
+import { GLPIGetErrorHandler } from '@handlers/errors/glpi-get-error.handler';
 
 export class GLPIAssistance extends RequestsHandler<AssistanceRequestsMap> {
     constructor(auth: REQUESTS) {

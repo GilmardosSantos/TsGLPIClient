@@ -1,7 +1,7 @@
-import { DropdownCommonMap } from "../../../models/dropdown/common/dropdown.common.model";
-import { REQUESTS } from "../../../models/requests";
-import { RequestsHandler } from "../../../handlers/request-handler";
-import { GLPIGetErrorHandler } from "../../../handlers/errors/glpi-get-error-handler";
+import { DropdownCommonMap } from "@models/controllers/dropdown/common/dropdown.common.model";
+import { REQUESTS } from "@models/requests";
+import { RequestsHandler } from "@handlers/request-handler";
+import { GLPIGetErrorHandler } from "@handlers/errors/glpi-get-error.handler";
 
 export class GLPIDropdownCommon extends RequestsHandler<DropdownCommonMap>{
 

@@ -1,6 +1,6 @@
 import axios from "axios";
-import { AuthResponse } from "../models/auth";
-import { GLPIClientInterface } from "../models/main";
+import { AuthResponse } from "@models/auth";
+import { GLPIClientInterface } from "@models/main";
 
 export class Auth {
     constructor(private auth: GLPIClientInterface){

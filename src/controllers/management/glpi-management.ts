@@ -1,8 +1,7 @@
-import { ManagementTypesMap } from "../../models/management/management.model";
-import { REQUESTS } from "../../models/requests";
-import { RequestsHandler } from "../../handlers/request-handler";
-import { GLPIGetErrorHandler } from "../../handlers/errors/glpi-get-error-handler";
-
+import { GLPIGetErrorHandler } from "@handlers/errors/glpi-get-error.handler";
+import { ManagementTypesMap } from "@models/controllers/management/management.model";
+import { REQUESTS } from "@models/requests";
+import { RequestsHandler } from "@handlers/request-handler";
 
 export class GLPIManagement extends RequestsHandler<ManagementTypesMap>{
     constructor(auth: REQUESTS) {

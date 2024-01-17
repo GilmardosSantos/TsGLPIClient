@@ -1,7 +1,7 @@
-import { REQUESTS } from "../../models/requests";
-import { RequestsHandler } from "../../handlers/request-handler";
-import { ToolsTypesMap } from "../../models/tools/tools.model";
-import { GLPIGetErrorHandler } from "../../handlers/errors/glpi-get-error-handler";
+import { REQUESTS } from "@models/requests";
+import { RequestsHandler } from "@handlers/request-handler";
+import { ToolsTypesMap } from "@models/controllers/tools/tools.model";
+import { GLPIGetErrorHandler } from "@handlers/errors/glpi-get-error.handler";
 
 export class GLPITools extends RequestsHandler<ToolsTypesMap>{
     constructor(auth: REQUESTS){
