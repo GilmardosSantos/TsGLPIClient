@@ -1,0 +1,30 @@
+import { Links, TrueFalse } from "src/types/types";
+
+export interface ItilCategory {
+    id: number,
+    entities_id: number,
+    is_recursive: number,
+    itilcategories_id: number,
+    name: string,
+    completename: string,
+    comment: string,
+    level: number,
+    knowbaseitemcategories_id: number,
+    users_id: number,
+    groups_id: number,
+    code: string,
+    ancestors_cache: string,
+    sons_cache: string,
+    is_helpdeskvisible: TrueFalse,
+    tickettemplates_id_incident: number,
+    tickettemplates_id_demand: number,
+    changetemplates_id: number,
+    problemtemplates_id: number,
+    is_incident: TrueFalse,
+    is_request: TrueFalse,
+    is_problem: TrueFalse,
+    is_change: TrueFalse,
+    date_mod: string,
+    date_creation: string,
+    links: Links;
+}
